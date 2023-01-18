@@ -6,8 +6,7 @@ const posts = [
       "https://st1.uvnimg.com/dims4/default/6eb31f5/2147483647/thumbnail/400x225/quality/75/?url=https%3A%2F%2Fuvn-brightspot.s3.amazonaws.com%2Fassets%2Fvixes%2Fy%2Fyoda_entrenado_a_luke_star_wars.jpeg",
     author: {
       name: "Yoda",
-      image:
-        "https://s1.eestatic.com/2015/12/11/actualidad/actualidad_86001588_298582_1706x1280.jpg",
+      image: "../img/yoda.jpg",
     },
     likes: 80,
     created: "2021-06-25",
@@ -15,11 +14,11 @@ const posts = [
   {
     id: 2,
     content:
-      "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+      "Hai mai fatto un sogno tanto realistico da sembrarti vero? E se da un sogno così non dovessi più svegliarti, come potresti distinguere il mondo dei sogni dalla realtà?",
     media: "https://unsplash.it/600/400?image=112",
     author: {
-      name: "Sofia Perlari",
-      image: "https://unsplash.it/300/300?image=10",
+      name: "Morpheus",
+      image: "../img/morpheus.jpg",
     },
     likes: 120,
     created: "2021-09-03",
@@ -79,3 +78,23 @@ likes.innerHTML += `${likesArray[0]}`;
 
 const created = document.querySelector(".post-meta__time");
 created.innerHTML += `${createdArray[0]}`;
+
+// post 2
+
+const imgAutore2 = document.querySelector(".post-meta__icon2");
+imgAutore2.innerHTML += `<img class="profile-pic" src="${immaginiArray[1]}" alt="Phil Mangione"/>`;
+
+const nameAutore2 = document.querySelector(".post-meta__author2");
+nameAutore2.innerHTML += `${authorArray[1]}`;
+
+const contentPost2 = document.querySelector(".post__text2");
+contentPost2.innerHTML += `${contentArray[1]}`;
+
+const media2 = document.querySelector(".post__image2");
+media2.innerHTML += `<img src="${mediaArray[1]}" alt="" />`;
+
+const likes2 = document.querySelector(".js-likes-counter2");
+likes2.innerHTML += `${likesArray[1]}`;
+
+const created2 = document.querySelector(".post-meta__time2");
+created2.innerHTML += `${createdArray[1]}`;
