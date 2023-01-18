@@ -113,3 +113,5 @@ likes2.innerHTML += `${likesArray[1]}`;
 
 const created2 = document.querySelector(".post-meta__time2");
 created2.innerHTML += `${createdArray[1]}`;
+
+const button2 = document.getElementById("myButton");
