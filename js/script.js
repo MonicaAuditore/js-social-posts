@@ -66,15 +66,15 @@ console.log("createdArray", createdArray);
 const button = document.getElementById("myButton");
 const textButton = document.querySelector(".like-button");
 
-function mouseDown() {
-  button.style.color = "red";
-}
+button.addEventListener("click", function () {
+  if (button.classList.contains("like-button-newColor")) {
+    button.classList.remove("like-button-newColor");
+  } else {
+    button.classList.add("like-button-newColor");
+  }
+});
 
-function mouseUp() {
-  button.style.color = "blue";
-}
-
-// ---------------------------------------------
+// post uno ---------------------------------------------
 
 const imgAutore = document.querySelector(".post-meta__icon");
 imgAutore.innerHTML += `<img class="profile-pic" src="${immaginiArray[0]}" alt=""/>`;
