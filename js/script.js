@@ -63,16 +63,24 @@ console.log("createdArray", createdArray);
 
 // click button ----------------------------------
 
+const likes = document.querySelector(".js-likes-counter");
+postCliccati = [];
+
 const button = document.getElementById("myButton");
 const textButton = document.querySelector(".like-button");
 
 button.addEventListener("click", function () {
   if (button.classList.contains("like-button-newColor")) {
     button.classList.remove("like-button-newColor");
+    likes.innerHTML--;
   } else {
     button.classList.add("like-button-newColor");
+    likes.innerHTML++;
+    postCliccati.push("id" + " " + posts[0].id);
   }
 });
+
+console.log("postCliccati", postCliccati);
 
 // post uno ---------------------------------------------
 
@@ -88,7 +96,6 @@ contentPost.innerHTML += `${contentArray[0]}`;
 const media = document.querySelector(".post__image");
 media.innerHTML += `<img src="${mediaArray[0]}" alt="" />`;
 
-const likes = document.querySelector(".js-likes-counter");
 likes.innerHTML += `${likesArray[0]}`;
 
 const created = document.querySelector(".post-meta__time");
