@@ -23,18 +23,18 @@ const posts = [
     likes: 120,
     created: "2021-09-03",
   },
-  {
-    id: 3,
-    content:
-      "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-    media: "https://unsplash.it/600/400?image=234",
-    author: {
-      name: "Chiara Passaro",
-      image: "https://unsplash.it/300/300?image=20",
-    },
-    likes: 78,
-    created: "2021-05-15",
-  },
+  //   {
+  //     id: 3,
+  //     content:
+  //       "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+  //     media: "https://unsplash.it/600/400?image=234",
+  //     author: {
+  //       name: "Chiara Passaro",
+  //       image: "https://unsplash.it/300/300?image=20",
+  //     },
+  //     likes: 78,
+  //     created: "2021-05-15",
+  //   },
 ];
 
 // Arrey di dati
@@ -54,15 +54,30 @@ for (let i = 0; i < posts.length; i++) {
   likesArray.push(posts[i].likes);
   createdArray.push(posts[i].created);
 }
-console.log(immaginiArray);
-console.log(authorArray);
-console.log(contentArray);
-console.log(mediaArray);
-console.log(likesArray);
+console.log("immaginiArray", immaginiArray);
+console.log("authorArray", authorArray);
+console.log("contentArray", contentArray);
+console.log("mediaArray", mediaArray);
+console.log("likesArray", likesArray);
 console.log("createdArray", createdArray);
 
+// click button ----------------------------------
+
+const button = document.getElementById("myButton");
+const textButton = document.querySelector(".like-button");
+
+function mouseDown() {
+  button.style.color = "red";
+}
+
+function mouseUp() {
+  button.style.color = "blue";
+}
+
+// ---------------------------------------------
+
 const imgAutore = document.querySelector(".post-meta__icon");
-imgAutore.innerHTML += `<img class="profile-pic" src="${immaginiArray[0]}" alt="Phil Mangione"/>`;
+imgAutore.innerHTML += `<img class="profile-pic" src="${immaginiArray[0]}" alt=""/>`;
 
 const nameAutore = document.querySelector(".post-meta__author");
 nameAutore.innerHTML += `${authorArray[0]}`;
@@ -79,10 +94,10 @@ likes.innerHTML += `${likesArray[0]}`;
 const created = document.querySelector(".post-meta__time");
 created.innerHTML += `${createdArray[0]}`;
 
-// post 2
+// post 2 ---------------------------------------
 
 const imgAutore2 = document.querySelector(".post-meta__icon2");
-imgAutore2.innerHTML += `<img class="profile-pic" src="${immaginiArray[1]}" alt="Phil Mangione"/>`;
+imgAutore2.innerHTML += `<img class="profile-pic" src="${immaginiArray[1]}" alt=""/>`;
 
 const nameAutore2 = document.querySelector(".post-meta__author2");
 nameAutore2.innerHTML += `${authorArray[1]}`;
