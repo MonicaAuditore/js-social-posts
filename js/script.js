@@ -1,12 +1,43 @@
+/*
+esercizio di oggi: Social Posts
+nome repo: js-social-posts
+Descrizione
+Ricreiamo un feed social aggiungendo al layout di base fornito, il nostro script JS in cui:
+
+Milestone 1 - Creiamo il nostro array di oggetti che rappresentano ciascun post.
+Ogni post dovrà avere le informazioni necessarie per stampare la relativa card:
+
+- id del post, numero progressivo da 1 a n
+- nome autore,
+- foto autore,
+- data in formato americano (mm-gg-yyyy),
+- testo del post,
+- immagine (non tutti i post devono avere una immagine),
+- numero di likes.
+  Non è necessario creare date casuali
+  Per le immagini va bene utilizzare qualsiasi servizio di placeholder ad es. Unsplash (https://unsplash.it/300/300?image=<id>)
+
+  Milestone 2 - Prendendo come riferimento il layout di esempio presente nell'html, stampiamo i post del nostro feed.
+  
+  Milestone 3 - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
+  Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
+  
+  BONUS
+1. Formattare le date in formato italiano (gg/mm/aaaa)
+2. Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola LF).
+3. Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone.
+
+*/
+
 const posts = [
   {
     id: 1,
-    content: "No, provare no. Fare o non fare. Non c’è provare.",
-    media:
-      "https://st1.uvnimg.com/dims4/default/6eb31f5/2147483647/thumbnail/400x225/quality/75/?url=https%3A%2F%2Fuvn-brightspot.s3.amazonaws.com%2Fassets%2Fvixes%2Fy%2Fyoda_entrenado_a_luke_star_wars.jpeg",
+    content:
+      "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+    media: "https://unsplash.it/600/300?image=171",
     author: {
-      name: "Yoda",
-      image: "../img/yoda.jpg",
+      name: "Phil Mangione",
+      image: "https://unsplash.it/300/300?image=15",
     },
     likes: 80,
     created: "2021-06-25",
@@ -14,111 +45,129 @@ const posts = [
   {
     id: 2,
     content:
-      "Hai mai fatto un sogno tanto realistico da sembrarti vero? E se da un sogno così non dovessi più svegliarti, come potresti distinguere il mondo dei sogni dalla realtà?",
+      "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
     media: "https://unsplash.it/600/400?image=112",
     author: {
-      name: "Morpheus",
-      image: "../img/morpheus.jpg",
+      name: "Sofia Perlari",
+      image: "https://unsplash.it/300/300?image=10",
     },
     likes: 120,
     created: "2021-09-03",
   },
-  //   {
-  //     id: 3,
-  //     content:
-  //       "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-  //     media: "https://unsplash.it/600/400?image=234",
-  //     author: {
-  //       name: "Chiara Passaro",
-  //       image: "https://unsplash.it/300/300?image=20",
-  //     },
-  //     likes: 78,
-  //     created: "2021-05-15",
-  //   },
+  {
+    id: 3,
+    content:
+      "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+    media: "https://unsplash.it/600/400?image=234",
+    author: {
+      name: "Chiara Passaro",
+      image: "https://unsplash.it/300/300?image=20",
+    },
+    likes: 78,
+    created: "2021-05-15",
+  },
+  {
+    id: 4,
+    content:
+      "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+    media: "https://unsplash.it/600/400?image=24",
+    author: {
+      name: "Luca Formicola",
+      image: null,
+    },
+    likes: 56,
+    created: "2021-04-03",
+  },
+  {
+    id: 5,
+    content:
+      "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
+    media: "https://unsplash.it/600/400?image=534",
+    author: {
+      name: "Alessandro Sainato",
+      image: "https://unsplash.it/300/300?image=29",
+    },
+    likes: 95,
+    created: "2021-03-05",
+  },
 ];
 
-// Arrey di dati
-
-immaginiArray = [];
-authorArray = [];
-contentArray = [];
-mediaArray = [];
-likesArray = [];
-createdArray = [];
-
-for (let i = 0; i < posts.length; i++) {
-  immaginiArray.push(posts[i].author["image"]);
-  authorArray.push(posts[i].author["name"]);
-  contentArray.push(posts[i].content);
-  mediaArray.push(posts[i].media);
-  likesArray.push(posts[i].likes);
-  createdArray.push(posts[i].created);
-}
-console.log("immaginiArray", immaginiArray);
-console.log("authorArray", authorArray);
-console.log("contentArray", contentArray);
-console.log("mediaArray", mediaArray);
-console.log("likesArray", likesArray);
-console.log("createdArray", createdArray);
-
-// click button ----------------------------------
-
-const likes = document.querySelector(".js-likes-counter");
-postCliccati = [];
-
-const button = document.getElementById("myButton");
-const textButton = document.querySelector(".like-button");
-
-button.addEventListener("click", function () {
-  if (button.classList.contains("like-button-newColor")) {
-    button.classList.remove("like-button-newColor");
-    likes.innerHTML--;
-  } else {
-    button.classList.add("like-button-newColor");
-    likes.innerHTML++;
-    postCliccati.push("id" + " " + posts[0].id);
-  }
+posts.forEach((post, index) => {
+  console.log(index, post);
 });
 
-console.log("postCliccati", postCliccati);
+const postContainer = document.getElementById("container");
 
-// post uno ---------------------------------------------
+// Milestone 2
+posts.forEach((post, index) => {
+  postContainer.innerHTML += `
+<div class="post">
+        <div class="post__header">
+          <div class="post-meta">
+            <div class="post-meta__icon">
+              <img
+                class="profile-pic"
+                src="${post["author"]["image"]}"
+                alt="${post["author"]["name"]}"
+              />
+            </div>
+            <div class="post-meta__data">
+              <div class="post-meta__author">${post["author"]["name"]}</div>
+              <div class="post-meta__time">${post.created}</div>
+            </div>
+          </div>
+        </div>
+        <div class="post__text">
+        ${post.content}
+        </div>
+        <div class="post__image">
+          <img src="${post.media}" alt="${post.id}" />
+        </div>
+        <div class="post__footer">
+          <div class="likes js-likes">
+            <div class="likes__cta">
+              <a class="like-button js-like-button" href="#" data-postid="${post.id}">
+                <i
+                  class="like-button__icon fas fa-thumbs-up"
+                  aria-hidden="true"
+                ></i>
+                <span class="like-button__label">Mi Piace</span>
+              </a>
+            </div>
+            <div class="likes__counter">
+              Piace a
+              <b id="like-counter-1" class="js-likes-counter">${post.likes}</b> persone
+            </div>
+          </div>
+        </div>
+      </div>
+`;
+});
 
-const imgAutore = document.querySelector(".post-meta__icon");
-imgAutore.innerHTML += `<img class="profile-pic" src="${immaginiArray[0]}" alt=""/>`;
+// Milestone 3
+const allLikeBtn = document.querySelectorAll(".js-like-button");
 
-const nameAutore = document.querySelector(".post-meta__author");
-nameAutore.innerHTML += `${authorArray[0]}`;
+allLikeBtn.forEach((singleButton, i) => {
+  singleButton.addEventListener("click", function (event) {
+    event.preventDefault();
 
-const contentPost = document.querySelector(".post__text");
-contentPost.innerHTML += `${contentArray[0]}`;
+    this.classList.add("like-button--liked");
 
-const media = document.querySelector(".post__image");
-media.innerHTML += `<img src="${mediaArray[0]}" alt="" />`;
+    const postId = this.getAttribute("data-postid");
 
-likes.innerHTML += `${likesArray[0]}`;
+    console.log(postId);
 
-const created = document.querySelector(".post-meta__time");
-created.innerHTML += `${createdArray[0]}`;
+    const likeConter = document.getElementById("like-counter-" + postId);
 
-// post 2 ---------------------------------------
+    console.log(likeConter);
 
-const imgAutore2 = document.querySelector(".post-meta__icon2");
-imgAutore2.innerHTML += `<img class="profile-pic" src="${immaginiArray[1]}" alt=""/>`;
+    // incremento il valore dentro il contatore di like
 
-const nameAutore2 = document.querySelector(".post-meta__author2");
-nameAutore2.innerHTML += `${authorArray[1]}`;
+    let likes = parseInt(likeConter.innerText);
+    console.log(likes);
+    likes = likes + 1;
+    console.log(likes);
 
-const contentPost2 = document.querySelector(".post__text2");
-contentPost2.innerHTML += `${contentArray[1]}`;
-
-const media2 = document.querySelector(".post__image2");
-media2.innerHTML += `<img src="${mediaArray[1]}" alt="" />`;
-
-const likes2 = document.querySelector(".js-likes-counter2");
-likes2.innerHTML += `${likesArray[1]}`;
-
-const created2 = document.querySelector(".post-meta__time2");
-created2.innerHTML += `${createdArray[1]}`;
-
-const button2 = document.getElementById("myButton");
+    likeConter.innerHTML = likes;
+  });
+});
