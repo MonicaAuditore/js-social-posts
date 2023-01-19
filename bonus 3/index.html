@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Posts</title>
+
+    <script
+      src="https://kit.fontawesome.com/1e3be9b4ce.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h1 class="main-title">Social Posts</h1>
+
+    <div id="container" class="posts-list">
+      <!-- post uno -->
+      <div class="post">
+        <div class="post__header">
+          <div class="post-meta">
+            <div class="post-meta__icon">
+              <!-- img autore -->
+            </div>
+            <div class="post-meta__data">
+              <div class="post-meta__author"></div>
+              <div class="post-meta__time"></div>
+            </div>
+          </div>
+        </div>
+        <div class="post__text">
+          <!-- content -->
+        </div>
+        <div class="post__image">
+          <!-- img post -->
+        </div>
+        <div class="post__footer">
+          <div class="likes js-likes">
+            <div class="likes__cta">
+              <a class="like-button js-like-button" href="#" data-postid="1">
+                <i
+                  class="like-button__icon fas fa-thumbs-up"
+                  aria-hidden="true"
+                ></i>
+                <span id="myButton" class="like-button__label">Mi Piace</span>
+              </a>
+            </div>
+            <div class="likes__counter">
+              Piace a
+              <b id="like-counter-1" class="js-likes-counter"></b> persone
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- post 2 ------------------------------------------------------------------------------------->
+      <div class="post">
+        <div class="post__header">
+          <div class="post-meta">
+            <div class="post-meta__icon post-meta__icon2">
+              <!-- img autore -->
+            </div>
+            <div class="post-meta__data">
+              <div class="post-meta__author post-meta__author2"></div>
+              <div class="post-meta__time post-meta__time2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="post__text post__text2">
+          <!-- content -->
+        </div>
+        <div class="post__image post__image2">
+          <!-- img post -->
+        </div>
+        <div class="post__footer">
+          <div class="likes js-likes">
+            <div class="likes__cta">
+              <a class="like-button js-like-button" href="#" data-postid="1">
+                <i
+                  class="like-button__icon fas fa-thumbs-up"
+                  aria-hidden="true"
+                ></i>
+                <span id="myButton" class="like-button__label">Mi Piace</span>
+              </a>
+            </div>
+            <div class="likes__counter">
+              Piace a
+              <b
+                id="like-counter-1"
+                class="js-likes-counter js-likes-counter2"
+              ></b>
+              persone
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- fine post 2 ------------------------------------------------------------------------------------->
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
