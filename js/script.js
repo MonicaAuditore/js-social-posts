@@ -136,7 +136,7 @@ posts.forEach((post, index) => {
             </div>
             <div class="likes__counter">
               Piace a
-              <b id="like-counter-1" class="js-likes-counter">${post.likes}</b> persone
+              <b id="like-counter-${post.id}" class="js-likes-counter">${post.likes}</b> persone
             </div>
           </div>
         </div>
@@ -148,26 +148,30 @@ posts.forEach((post, index) => {
 const allLikeBtn = document.querySelectorAll(".js-like-button");
 
 allLikeBtn.forEach((singleButton, i) => {
-  singleButton.addEventListener("click", function (event) {
-    event.preventDefault();
+  singleButton.addEventListener(
+    "click",
 
-    this.classList.add("like-button--liked");
+    function (event) {
+      event.preventDefault();
 
-    const postId = this.getAttribute("data-postid");
+      this.classList.add("like-button--liked");
 
-    console.log(postId);
+      const postId = this.getAttribute("data-postid");
 
-    const likeConter = document.getElementById("like-counter-" + postId);
+      console.log(postId);
 
-    console.log(likeConter);
+      const likeConter = document.getElementById("like-counter-" + postId);
 
-    // incremento il valore dentro il contatore di like
+      console.log(likeConter);
 
-    let likes = parseInt(likeConter.innerText);
-    console.log(likes);
-    likes = likes + 1;
-    console.log(likes);
+      // incremento il valore dentro il contatore di like
 
-    likeConter.innerHTML = likes;
-  });
+      let likes = parseInt(likeConter.innerText);
+      console.log(likes);
+      likes = likes + 1;
+      console.log(likes);
+
+      likeConter.innerHTML = likes;
+    }
+  );
 });
