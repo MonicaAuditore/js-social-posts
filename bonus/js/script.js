@@ -215,37 +215,3 @@ allLikeBtn.forEach((singleButton, i) => {
     }
   );
 });
-
-//Calcolo data ---------------------------------
-
-AllDate = [];
-MesiPassati = [];
-
-posts.forEach((element) => {
-  console.log(element["created"]);
-  AllDate.push(element["created"]);
-});
-
-console.log("AllDate", AllDate);
-
-function functionDifferenza(date1, date2) {
-  let DifferenzaTempo = date2.getTime() - date1.getTime();
-
-  // Calcolo numero giorni
-  let DifferenzaGiorni = DifferenzaTempo / (1000 * 3600 * 24);
-
-  let Difference = Math.floor(DifferenzaGiorni / 30);
-
-  //Numero finale
-  console.log("Sono passati", Difference, "mesi");
-
-  MesiPassati.push(Difference);
-}
-
-for (let i = 0; i < AllDate.length; i++) {
-  functionDifferenza(new Date(AllDate[i]), new Date());
-}
-
-console.log("MesiPassati", MesiPassati);
-
-//Fine calcolo data ---------------------------------
